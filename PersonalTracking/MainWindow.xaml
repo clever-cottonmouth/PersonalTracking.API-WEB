@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PersonalTracking"
+        xmlns:views="clr-namespace:PersonalTracking.Views"
+        xmlns:viewmodels="clr-namespace:PersonalTracking.ViewModels"
         mc:Ignorable="d"
         Title="Personal Tracking" Name="PersonalMainWindow" Height="540" Width="1200" FontSize="24" WindowStartupLocation="CenterScreen" FontWeight="Bold" Loaded="Window_Loaded" Background="#FFE87E7E" Icon="/OIP (6).jpeg" ResizeMode="NoResize">
     <Grid HorizontalAlignment="Stretch" Height="NaN" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="NaN">
@@ -24,7 +26,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Image Source="/OIP (6).jpeg" />
-        <ContentControl Grid.Column="1" Content="" Grid.RowSpan="9" Height="NaN" Width="NaN" Grid.ColumnSpan="2" Margin="7,8,23,29" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
+        <ContentControl Grid.Column="1" Content="{Binding}" Grid.RowSpan="9" Height="NaN" Width="NaN" Grid.ColumnSpan="2" Margin="7,8,23,29" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
             <ContentControl.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -36,7 +38,7 @@
         </ContentControl>
         <Label x:Name="IblWindowName" Grid.Column="1" Content="Window Name" HorizontalAlignment="Left" Margin="76,0,0,0" VerticalAlignment="Top" FontSize="36"/>
         <StackPanel Grid.Row="1" Margin="0,2,0,0">
-            <Button Grid.Row="1" Name="btnEmployee" Height="60" Width="250" HorizontalAlignment="Left">
+            <Button Grid.Row="1" Name="btnEmployee" Height="60" Width="250" HorizontalAlignment="Left" Click="btnEmployee_Click">
                 <Grid Width="230">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
@@ -88,7 +90,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="5" Margin="0,2,0,0">
-            <Button Grid.Row="5" Name="btnDepartment" Height="60" Width="250" HorizontalAlignment="Left">
+            <Button Grid.Row="5" Name="btnDepartment" Height="60" Width="250" HorizontalAlignment="Left" Click="btnDepartment_Click">
                 <Grid Width="230">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
@@ -139,4 +141,12 @@
             </Button>
         </StackPanel>
     </Grid>
+
+    <Window.Resources>
+        <DataTemplate x:Name="DepartmentTemplate" DataType="{x:Type viewmodels:DepartmentViewModel}">
+            <views:DepartmentList>
+                
+            </views:DepartmentList>
+        </DataTemplate>
+    </Window.Resources>
 </Window>

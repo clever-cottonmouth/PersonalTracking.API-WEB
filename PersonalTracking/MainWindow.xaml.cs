@@ -1,4 +1,5 @@
 ﻿using PersonalTracking.DB;
+using PersonalTracking.ViewModels;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,6 +31,17 @@ namespace PersonalTracking
                 // db.Employees.Add(new Employee { Name = "John Doe", Position = "Developer" });
                 // db.SaveChanges();}
             }
+        }
+
+        private void btnDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            IblWindowName.Content = "DepartmentList";
+            DataContext = new DepartmentViewModel();
+        }
+
+        private void btnEmployee_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
