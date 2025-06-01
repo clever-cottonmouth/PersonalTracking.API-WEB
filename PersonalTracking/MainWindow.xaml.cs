@@ -35,13 +35,9 @@ namespace PersonalTracking
 
         private void btnDepartment_Click(object sender, RoutedEventArgs e)
         {
-            IblWindowName.Content = "DepartmentList";
-            DataContext = new DepartmentViewModel();
+            
+            
         }
 
-        private void btnEmployee_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
